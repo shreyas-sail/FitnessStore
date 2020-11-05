@@ -1,0 +1,28 @@
+.carousel.THIS {
+    height:100px;
+    
+}
+
+.THIS .slds-carousel__content{
+    display:none;
+    margin:0;
+    padding:0;
+}
+
+.THIS .slds-carousel__autoplay{
+    display:none;
+    
+}
+
+.THIS .slds-carousel__image{
+    height:570px;
+    width:1920px;
+}
+
+
+.THIS .btn {
+    position:fixed; 
+    top:700px; 
+    left:750px;
+    z-index: 10;
+}

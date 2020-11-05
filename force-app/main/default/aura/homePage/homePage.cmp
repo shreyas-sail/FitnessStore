@@ -1,0 +1,36 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" >
+    <lightning:card>
+        <!--use bootstrap css and jQUERY file in lightning component by using ltng:require component-->
+        <ltng:require styles="{! $Resource.bootstrap + '/bootstrap-4.5.3-dist/css/bootstrap.min.css'}" 
+                      scripts="{!join(',', 
+                               $Resource.jquery , 
+                               $Resource.bootstrap + '/bootstrap-4.5.3-dist/js/bootstrap.min.js')
+                               }" />
+        <!--To ensure proper rendering and touch zooming using below meta tag--> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <lightning:navigation aura:id="navService"/>
+        <button type="button" class="btn btn-danger btn-lg" onclick="{!c.handleClick}">Order Equipment</button>
+        <div class="carousel">
+            <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+                <lightning:carouselImage
+                                         src = "/resource/slide1"
+                                         alternativeText = "First card accessible description."
+                                         
+                                         content = "hello"
+                                         >
+                    
+                </lightning:carouselImage>
+                <lightning:carouselImage
+                                         src = "/resource/slide2"
+                                         alternativeText = "Second card accessible description."
+                                         >
+                </lightning:carouselImage>
+                <lightning:carouselImage
+                                         src = "/resource/slide3"
+                                         alternativeText = "Third card accessible description."
+                                         >
+                </lightning:carouselImage>
+            </lightning:carousel>
+        </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,55 @@
+<template>
+    <lightning-card>
+        <div>
+            <template if:true={ifCartEmpty}>
+                <lightning-card title="Order Review" icon-name="action:canvas" style="padding-bottom: 30px;">
+
+                </lightning-card>
+                <lightning-layout padding="medium" class="slds-box">
+                    <lightning-layout-item size="3">
+                        <template for:each={pictureList} for:item="picture">
+                            <div key={picture.Id} class="slds-list_horizontal lgc-bg">
+                                <lightning-avatar src={picture} style="width:60px;height:70px;padding-left:5px">
+                                </lightning-avatar>
+                            </div>
+                        </template>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4">
+                        <template for:each={nameList} for:item="name">
+                            <p key={name.Id} style="font-size:15px" class="slds-p-top_x-large ">
+                                {name}
+                            </p>
+                        </template>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="5">
+                        <template for:each={priceList} for:item="price">
+                            <p key={price.Id} style="font-size:20px" class="slds-p-top_large ">
+                                {price}
+                                <lightning-button key={price.Id} label="+" data-key={price} onclick={addItem}>
+                                </lightning-button>
+                                <lightning-button key={price.Id} label="-" data-key={price} onclick={subItem}
+                                    disabled={disableStatus}></lightning-button>
+                                {qauntityCount}
+                            </p>
+                        </template><br></br><br>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <div class="slds-border_bottom slds-p-left_small">
+                    <p style="font-size:xx-large;"><b>Total: {grandTotal}</b></p>
+                </div>
+
+            </template>
+
+            <template if:false={ifCartEmpty}>
+                <lightning-icon icon-name="standard:webcart" alternative-text="webcart" size="large" title="large size"
+                    class="slds-align_absolute-center" style="width:4rem">
+                </lightning-icon>
+                <h1 style="font-size:15px; margin-left:230px">Cart Empty</h1>
+            </template>
+        </div>
+    </lightning-card>
+    <br></br>
+    <lightning-card>
+        <c-customer-form price={grandTotal}></c-customer-form>
+    </lightning-card>
+</template>

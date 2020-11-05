@@ -1,0 +1,13 @@
+.NavClass{
+    padding-right: 600px;
+}
+.row {
+    display: flex;
+  }
+  .column1 {
+    flex: 33.33%;
+    size:10%;
+  }
+  .column2 {
+    flex: 33.33%;
+  }

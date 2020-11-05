@@ -1,0 +1,29 @@
+<template>
+    <lightning-card >
+        <div class="slds-p-around_medium lgc-bg"> 
+            <h1 style="font-size:30px;">Gym Equipments</h1>
+            <p style="font-size:medium;">Shop all of Gym Source's equipments,including elipticals,exercise bikes,free weights,home gyms,indoor cycles,steppers,treadmills and more.</p>
+        </div>
+        <div>
+        <template if:true={categoryList}>
+            <lightning-layout multiple-rows="true">
+                <template for:each={categoryList} for:item="cat">
+                    <lightning-layout-item key={cat.Id} size="2" style="padding: 20px;">
+                        <div class="slds-tile" key={cat.Id} draggable="true" data-target-id={cat.Id}  ondragstart={handleDragStart}>
+                            <div class="slds-list_horizontal lgc-bg" style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                                <lightning-tile>
+                                    <img src={cat.Image__c} style="height:200px;width:180px"><br>
+                                        <p class="slds-p-around_medium" style="font-size:medium;"><a onclick={navigatetocatalog} data-id={cat.Id}>{cat.Name__c}</a></p>
+                                </lightning-tile>
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+        </div>
+        <div slot="footer" style="text-align:right;">
+            <p>Fitnes Strore</p>
+        </div>
+    </lightning-card>   
+</template>

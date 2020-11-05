@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="" class="breadClass">
+        <lightning-breadcrumbs>
+            <lightning-breadcrumb label="Home" href="/lightning/n/Homepage" onclick={handleNavigateToCustomPage1}>
+            </lightning-breadcrumb>
+            <lightning-breadcrumb label="Equipment Page" href="/lightning/n/Order_Equipments"
+                onclick={handleNavigateToCustomPage2}>
+            </lightning-breadcrumb>
+            <lightning-breadcrumb label="Catalogue Page" href="/lightning/n/catalogue"
+                onclick={handleNavigateToCustomPage2} disabled="true">
+            </lightning-breadcrumb>
+        </lightning-breadcrumbs>
+    </lightning-card>
+</template>

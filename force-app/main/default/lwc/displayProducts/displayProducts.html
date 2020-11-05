@@ -1,0 +1,40 @@
+<template>
+    <div class="c-container">
+        <lightning-card>
+            <template if:true={equipsList}>
+                <lightning-layout multiple-rows="true">
+                    <template for:each={equipsList} for:item="equip">
+                        <lightning-layout-item key={equip.Id} size="6" style="padding: 20px;">
+                            <div draggable="true" data-item={equip.Id} ondragstart={handleDragStart}>
+                                <lightning-card key={equip.Id}>
+                                    <div class="slds-tile" key={equip.Id} draggable="true" data-target-id={equip.Id}
+                                        ondragstart={handleDragStart}>
+                                        <div
+                                            style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+                                            <img src={equip.Image__c}
+                                                style="height:300px;width:280px;padding:20px;padding-left:70px"><br />
+                                            <div style="padding-left:30px">
+                                                <p class="slds-p-left-small" style="font-size:medium;"><a
+                                                        onclick={navigateToContactPage}
+                                                        data-id={equip.Id}>{equip.Name__c}</a></p>
+                                                <p class="slds-p-left-small" style="font-size:medium;">{equip.Price__c}
+                                                </p>
+                                                <p class="slds-p-left-small" style="font-size:medium;">{equip.Usage__c}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </lightning-card>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+        </lightning-card>
+    </div>
+    <div slot="footer" style="text-align:center;">
+        <c-pagination onprevious={handlePrev} onnext={handleNext} current={current} total={total}
+            style="padding-left:1%"></c-pagination>
+    </div>
+</template>

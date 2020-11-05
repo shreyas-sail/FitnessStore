@@ -1,0 +1,43 @@
+<template>
+
+    <lightning-layout>
+        <lightning-layout-item size="4" padding="around-small">
+            <lightning-card>
+                <lightning-vertical-navigation selected-item="reports_recent">
+                    <lightning-vertical-navigation-section label="USAGE">
+                        <lightning-vertical-navigation-item-icon label="Residential" name="Residential"
+                            icon-name="utility:home" onclick={handleNavclick}>
+                        </lightning-vertical-navigation-item-icon>
+
+                        <lightning-vertical-navigation-item-icon label="Commercial" name="reports_usercreated"
+                            icon-name="utility:shopping_bag" onclick={handleNavclick2}>
+                        </lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+                    <lightning-vertical-navigation-section label="CATEGORY">
+                        <lightning-vertical-navigation-item-icon label="PlateLoaded" name="folders_usercreated"
+                            icon-name="utility:automate">
+                        </lightning-vertical-navigation-item-icon>
+
+                        <lightning-vertical-navigation-item-icon label="Benches" name="folders_shared"
+                            icon-name="utility:macros">
+                        </lightning-vertical-navigation-item-icon>
+                    </lightning-vertical-navigation-section>
+                    <lightning-vertical-navigation-overflow label="CATEGORY">
+                        <lightning-vertical-navigation-item label="Home Gyms" name="1859008">
+                        </lightning-vertical-navigation-item>
+                        <lightning-vertical-navigation-item label="Free Weights" name="1919113">
+                        </lightning-vertical-navigation-item>
+                    </lightning-vertical-navigation-overflow>
+                </lightning-vertical-navigation>
+
+            </lightning-card>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="8" padding="around-small">
+            <lightning-card>
+                <c-display-products property={propertyValue} filter={usage}></c-display-products>
+            </lightning-card>
+        </lightning-layout-item>
+
+    </lightning-layout>
+</template>
